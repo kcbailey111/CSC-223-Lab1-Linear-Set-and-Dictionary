@@ -16,9 +16,14 @@ public class ArraySet<E> implements List<E>, Set<E>
 	{
 		_list = new ArrayList<E>();
 	}
-	
+
 	public ArraySet(Collection <? extends E> c) {
-		_list = new ArrayList<E>(c);
+		_list = new ArrayList<E>();
+		for (E colElement: c) {
+			if (!(_list.contains(colElement))) {
+				_list.add(colElement);
+			}
+		}
 	}
 	@Override
 	public int size() {return _list.size();}
@@ -28,7 +33,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean contains(Object o) {return _list.contains(o);}
-		
+
 
 	@Override
 	public Iterator<E> iterator() {return _list.iterator();}
@@ -43,19 +48,19 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public boolean add(E e) {
 		for (E element: _list) {
 			if (element.equals(e)){
-				return true;
+				return false;
 			}
 		}
-		return false;
+		return _list.add(e);
 	}
 
 	@Override
 	public boolean remove(Object o) {return _list.remove(o);}
-		
+
 
 	@Override
 	public boolean containsAll(Collection<?> c) {return _list.containsAll(c);}
-		
+
 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
@@ -68,13 +73,16 @@ public class ArraySet<E> implements List<E>, Set<E>
 		//TODO: Code addAll in, can't delegate its function like the others
 		return false;
 	}
-		
+
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		_list.clear();
-		if (_list.isEmpty()) return true;
-		return false;
+		for (Object colElement: c) {
+			if (_list.contains(colElement)) {
+				_list.remove(colElement);
+			}
+		}
+		return true;
 	}
 
 	@Override
