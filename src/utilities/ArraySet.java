@@ -34,7 +34,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 */
 	public ArraySet(Collection <? extends E> c) {
 		_list = new ArrayList<E>();
-		
+
 		//Loops over the elements of the collection and adds them if they aren't already in the list
 		for (E colElement: c) {
 			if (!(_list.contains(colElement))) {
@@ -42,7 +42,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 			}
 		}
 	}
-	
+
 	/**
 	 * returns the size of the list
 	 */
@@ -66,13 +66,13 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 */
 	@Override
 	public Iterator<E> iterator() {return _list.iterator();}
-	
+
 	/**
 	 * returns an array containing all of the elements in this list in proper sequence
 	 */
 	@Override
 	public Object[] toArray() {return _list.toArray();}
-	
+
 	/**
 	 * returns an array containing all of the elements in this list in proper sequence; the runtime
 	 * type of the returned array is that of the specified array
@@ -176,13 +176,16 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public E set(int index, E element) {
 		return (_list.contains(element)) ? (_list.get(index)) : (_list.set(index, element));}
-		
+
 
 	/**
 	 * Adds an element at a specified index
 	 */
 	@Override
-	public void add(int index, E element) {_list.add(index, element);}
+	public void add(int index, E element) {
+		if (!(_list.contains(element))) 
+			_list.add(index, element);
+	}
 
 	/**
 	 * Removes and element at a specified index

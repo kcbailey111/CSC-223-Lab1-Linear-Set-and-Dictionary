@@ -8,9 +8,9 @@ import java.util.Set;
 
 public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 {
-    protected ArraySet<Key>    _keys;
-    protected ArrayList<Value> _values;
-	
+	protected ArraySet<Key>    _keys;
+	protected ArrayList<Value> _values;
+
 	public ParallelArrayDictionary()
 	{
 		_keys = new ArraySet<Key>();
@@ -18,74 +18,64 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	}
 
 	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int size() {return _keys.size();}
 
 	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean isEmpty() {return _keys.isEmpty();}
 
 	@Override
-	public boolean containsKey(Object key) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean containsKey(Object key) {return _keys.contains(key);}
 
 	@Override
-	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean containsValue(Object value) {return _values.contains(value);}
 
 	@Override
-	public Value get(Object key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Value get(Object key) {return _values.get(_keys.indexOf(key));}
 
 	@Override
 	public Value put(Key key, Value value) {
-		// TODO Auto-generated method stub
-		return null;
+		if (_keys.contains(key)) {
+			int index = _keys.indexOf(key);
+			_values.set(index, value);
+		}
+		else {
+			_keys.add(key);
+			_values.add(value);
+		}
+
+		return value;
 	}
 
 	@Override
 	public Value remove(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		int index = _keys.indexOf(key);
+		_keys.remove(key);
+		return _values.remove(index);
 	}
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		_keys.clear();
+		_values.clear();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Set<Key> keySet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Set<Key> keySet() {return (Set<Key>) _keys.subList(0, _keys.size());}
 
 	@Override
-	public Collection<Value> values() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Collection<Value> values() {return _values.subList(0, _values.size());}
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
+		
+		
+		
 		return null;
 	}
 
