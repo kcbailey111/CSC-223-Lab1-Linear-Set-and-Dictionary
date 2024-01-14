@@ -1,3 +1,10 @@
+/**
+ * Test class for ArraySet.java. This class tests methods that didn't use delegation. 
+ * 
+ * @author Brodee Clontz and Kyler Bailey
+ * @date 01/14/24
+ */
+
 package utilities;
 
 import static org.junit.Assert.assertTrue;

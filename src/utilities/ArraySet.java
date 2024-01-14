@@ -20,7 +20,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	protected ArrayList<E> _list;
 
 	/**
-	 * Basic Constructor with no parameters
+	 * Basic Constructor with no parameters.
 	 */
 	public ArraySet()
 	{
@@ -35,7 +35,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public ArraySet(Collection <? extends E> c) {
 		_list = new ArrayList<E>();
 
-		//Loops over the elements of the collection and adds them if they aren't already in the list
+		//Loops over the elements of the collection and adds them if they aren't already in the list.
 		for (E colElement: c) {
 			if (!(_list.contains(colElement))) {
 				_list.add(colElement);
@@ -44,44 +44,44 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	/**
-	 * returns the size of the list
+	 * Returns the size of the list.
 	 */
 	@Override
 	public int size() {return _list.size();}
 
 	/**
-	 * returns true if the list is empty
+	 * Returns true if the list is empty.
 	 */
 	@Override
 	public boolean isEmpty() {return _list.isEmpty();}
 
 	/**
-	 * returns true if o is in the list
+	 * Returns true if o is in the list.
 	 */
 	@Override
 	public boolean contains(Object o) {return _list.contains(o);}
 
 	/**
-	 * returns an iterator over the elements of the list in proper sequence
+	 * Returns an iterator over the elements of the list in proper sequence.
 	 */
 	@Override
 	public Iterator<E> iterator() {return _list.iterator();}
 
 	/**
-	 * returns an array containing all of the elements in this list in proper sequence
+	 * Returns an array containing all of the elements in this list in proper sequence.
 	 */
 	@Override
 	public Object[] toArray() {return _list.toArray();}
 
 	/**
-	 * returns an array containing all of the elements in this list in proper sequence; the runtime
-	 * type of the returned array is that of the specified array
+	 * Returns an array containing all of the elements in this list in proper sequence; the runtime
+	 * type of the returned array is that of the specified array.
 	 */
 	@Override
 	public <T> T[] toArray(T[] a) {return _list.toArray(a);}
 
 	/**
-	 * Adds the element to the end of the list if it's not already in the list
+	 * Adds the element to the end of the list if it's not already in the list.
 	 */
 	@Override
 	public boolean add(E e) {
@@ -92,19 +92,19 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	/**
-	 * removes a specified element from the list
+	 * Removes a specified element from the list.
 	 */
 	@Override
 	public boolean remove(Object o) {return _list.remove(o);}
 
 	/**
-	 * removes elements contained in a collection from the list
+	 * Removes elements contained in a collection from the list.
 	 */
 	@Override
 	public boolean containsAll(Collection<?> c) {return _list.containsAll(c);}
 
 	/**
-	 * Adds all the elements from the collection as long as they aren't in the list already
+	 * Adds all the elements from the collection as long as they aren't in the list already.
 	 */
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
@@ -118,14 +118,14 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	/**
 	 * Adds all the elements from the collection as long as they aren't in the list already 
-	 * at a specified index
+	 * at a specified index.
 	 */
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
 		int count = 0;
 		for (E colElement: c) {
 			if (!(_list.contains(colElement))) {
-				//Index increases based on how many elements have been added
+				//Index increases based on how many elements have been added.
 				_list.add(index + count, colElement);
 				count ++;
 			}
@@ -134,7 +134,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	/**
-	 * Removes a collection of elements from a list
+	 * Removes a collection of elements from a list.
 	 */
 	@Override
 	public boolean removeAll(Collection<?> c) {
@@ -159,19 +159,19 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	/**
-	 * Clears all elements from the list
+	 * Clears all elements from the list.
 	 */
 	@Override
 	public void clear() {_list.clear();}
 
 	/**
-	 * Retrieves the element at the specified index
+	 * Retrieves the element at the specified index.
 	 */
 	@Override
 	public E get(int index) {return _list.get(index);}
 
 	/**
-	 * Sets the element at an index to a new element and returns the previous element
+	 * Sets the element at an index to a new element and returns the previous element.
 	 */
 	@Override
 	public E set(int index, E element) {
@@ -179,7 +179,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 
 	/**
-	 * Adds an element at a specified index
+	 * Adds an element at a specified index.
 	 */
 	@Override
 	public void add(int index, E element) {
@@ -188,43 +188,43 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	/**
-	 * Removes and element at a specified index
+	 * Removes and element at a specified index.
 	 */
 	@Override
 	public E remove(int index) {return _list.remove(index);}
 
 	/**
-	 * Returns the index of a specified object
+	 * Returns the index of a specified object.
 	 */
 	@Override
 	public int indexOf(Object o) {return _list.indexOf(o);}
 
 	/**
-	 * Returns the last index of a specified object
+	 * Returns the last index of a specified object.
 	 */
 	@Override
 	public int lastIndexOf(Object o) {return _list.lastIndexOf(o);}
 
 	/**
-	 * Returns a list iterator over the elements in this list
+	 * Returns a list iterator over the elements in this list.
 	 */
 	@Override
 	public ListIterator<E> listIterator() {return _list.listIterator();}
 
 	/**
-	 * Returns a list iterator over the elements in this list, starting at the specified index
+	 * Returns a list iterator over the elements in this list, starting at the specified index.
 	 */
 	@Override
 	public ListIterator<E> listIterator(int index) {return _list.listIterator(index);}
 
 	/**
-	 * Returns the elements of the list from a specified range
+	 * Returns the elements of the list from a specified range.
 	 */
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) {return _list.subList(fromIndex, toIndex);}
 
 	/**
-	 * Creates a spliterator over the elements in the set
+	 * Creates a spliterator over the elements in the set.
 	 */
 	@Override
 	public Spliterator<E> spliterator() {return _list.spliterator();}
