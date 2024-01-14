@@ -3,6 +3,8 @@ package utilities;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -74,10 +76,14 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
+		HashMap<Key, Value> map = new HashMap<Key, Value>();
+		int index = 0;
+		for (Key key : _keys) {
+			map.put(key, _values.get(index));
+			index++;
+		}
 		
-		
-		
-		return null;
+		return map.entrySet();
 	}
 
 }
