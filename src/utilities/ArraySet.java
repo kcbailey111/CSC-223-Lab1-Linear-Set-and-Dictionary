@@ -41,7 +41,11 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean add(E e) {
-		//TODO: Code add in, can't delegate its function like the others
+		for (E element: _list) {
+			if (element.equals(e)){
+				return true;
+			}
+		}
 		return false;
 	}
 
