@@ -55,7 +55,8 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		
+		_keys.addAll(m.keySet());
+		_values.addAll(m.values());
 	}
 
 	@Override
