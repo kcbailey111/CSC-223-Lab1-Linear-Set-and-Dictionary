@@ -108,11 +108,13 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	 */
 	@Override
 	public Set<Key> keySet() {
-		Set<Key> tempKeys = new ArraySet<Key>();
+		//Create a map so I can call the super class keySet.
+		HashMap<Key, Value> map = new HashMap<Key, Value>();
 		for (Key key: _keys) {
-			tempKeys.add(key);
+			//The values don't matter in this map since I only need the keys.
+			map.put(key, _values.get(0));
 		}
-		return tempKeys;
+		return map.keySet();
 	}
 
 	/**
@@ -127,6 +129,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	 */
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
+		//Create a map to put the keys and values into to call the super class entrySet.
 		HashMap<Key, Value> map = new HashMap<Key, Value>();
 		int index = 0;
 		for (Key key : _keys) {

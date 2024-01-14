@@ -132,7 +132,6 @@ class ParallelArrayDictionaryTest
 		_dict.put(2, "world");
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
-		System.out.println(_dict.values());
 		_dict.clear();
 		assertTrue(_dict.size()==0);
 	}
