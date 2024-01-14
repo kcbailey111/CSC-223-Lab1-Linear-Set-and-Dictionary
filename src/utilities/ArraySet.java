@@ -174,7 +174,9 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 * Sets the element at an index to a new element and returns the previous element
 	 */
 	@Override
-	public E set(int index, E element) {return _list.set(index, element);}
+	public E set(int index, E element) {
+		return (_list.contains(element)) ? (_list.get(index)) : (_list.set(index, element));}
+		
 
 	/**
 	 * Adds an element at a specified index
