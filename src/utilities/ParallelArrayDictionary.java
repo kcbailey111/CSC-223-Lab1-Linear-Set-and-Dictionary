@@ -1,10 +1,9 @@
 package utilities;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -67,9 +66,14 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		_values.clear();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public Set<Key> keySet() {return (Set<Key>) _keys.subList(0, _keys.size());}
+	public Set<Key> keySet() {
+		Set<Key> tempKeys = new ArraySet<Key>();
+		for (Key key: _keys) {
+			tempKeys.add(key);
+		}
+		return tempKeys;
+	}
 
 	@Override
 	public Collection<Value> values() {return _values.subList(0, _values.size());}
@@ -82,7 +86,6 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 			map.put(key, _values.get(index));
 			index++;
 		}
-		
 		return map.entrySet();
 	}
 
