@@ -90,8 +90,10 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	 */
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
+		//Add all keys and values into _keys and _values.
 		_keys.addAll(m.keySet());
 		_values.addAll(m.values());
+		//Loop to replace any values in existing keys that are different from existing values.
 		for (Key key: _keys) {
 			int index = _keys.indexOf(key);
 			_values.set(index, m.get(key));
