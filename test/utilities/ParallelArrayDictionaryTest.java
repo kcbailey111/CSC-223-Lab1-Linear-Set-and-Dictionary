@@ -64,7 +64,6 @@ class ParallelArrayDictionaryTest
 		_dict.put(2, "world");
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
-		
 		assertTrue(_dict.put(4, "first").equals("first"));
 		assertFalse(_dict.get(4).equals("last"));
 		assertTrue(_dict.size()==4);
@@ -116,8 +115,9 @@ class ParallelArrayDictionaryTest
 		_newDict = new ParallelArrayDictionary<Integer, String>();
 		_newDict.put(1, "goodbye");
 		_newDict.putAll(_dict);
-		assertFalse(_newDict.get(1).equals(_dict.get(1)));
+		assertTrue(_newDict.get(1).equals(_dict.get(1)));
 		assertTrue(_newDict.size()==4);
+		
 	}
 
 	/**

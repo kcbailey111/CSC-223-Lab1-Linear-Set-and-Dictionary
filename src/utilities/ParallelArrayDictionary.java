@@ -92,6 +92,10 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	public void putAll(Map<? extends Key, ? extends Value> m) {
 		_keys.addAll(m.keySet());
 		_values.addAll(m.values());
+		for (Key key: _keys) {
+			int index = _keys.indexOf(key);
+			_values.set(index, m.get(key));
+		}
 	}
 
 	/**
