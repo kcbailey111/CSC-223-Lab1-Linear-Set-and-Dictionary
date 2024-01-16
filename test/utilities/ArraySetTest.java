@@ -36,7 +36,7 @@ class ArraySetTest
 
 		//Making a new list with the collection and testing that it only adds one unique element
 		ArraySet<String> _newList = new ArraySet<String>(colOfStrings);
-		assertEquals(_newList.size(), 1);
+		assertEquals("Size is not 1", _newList.size(), 1);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ class ArraySetTest
 			_list.add("hello");
 		}
 		//Only one element should ever be added since all are the same
-		assertEquals(_list.size(), 1);
+		assertEquals("Size is not 1", _list.size(), 1);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ class ArraySetTest
 		_list.addAll(colOfStrings);
 
 		//Shouldn't add an additional "tsunami" so size should be 4
-		assertEquals(_list.size(), 4);
+		assertEquals("Size is not 4", _list.size(), 4);
 	}
 
 	@Test
@@ -75,15 +75,15 @@ class ArraySetTest
 		_list.retainAll(colOfStrings);
 
 		//Should only retain the 3 elements in colOfStrings
-		assertTrue(_list.size()==3);
-		assertEquals(_list.subList(0,3), Arrays.asList("hello", "world", "tsunami"));
+		assertEquals("Size is not 3", _list.size(), 3);
+		assertEquals("_list values are wrong", _list.subList(0,3), Arrays.asList("hello", "world", "tsunami"));
 		
 		//Adding the same element 3 times to the collection
 		colOfStrings = new ArrayList<String>(Arrays.asList("hello", "hello", "hello"));
 		
 		//It should only retain one unique element so size should be 1
 		_list.retainAll(colOfStrings);
-		assertTrue(_list.size()==1);
+		assertEquals("Size is not 1", _list.size(), 1);
 	}
 
 	@Test
@@ -97,7 +97,8 @@ class ArraySetTest
 
 		//Testing to see that the 2 elements from the collection were removed
 		_list.removeAll(colOfStrings);
-		assertEquals(_list.get(0), "tsunami");
+		assertEquals("Removed the wrong thing(s)", _list.get(0), "tsunami");
+		assertEquals("Size is not 1", _list.size(), 1);
 	}
 
 	@Test
@@ -111,9 +112,10 @@ class ArraySetTest
 		_list.addAll(1, colOfStrings);
 
 		//Shouldn't add an additional "tsunami" so size should be 4
-		assertEquals(_list.size(), 4);
+		assertEquals("Size is not 4", _list.size(), 4);
 
 		//Testing to make sure the elements were inserted in the right place
-		assertEquals(_list.subList(0, 4), Arrays.asList("first", "hello", "world", "tsunami"));
+		assertEquals("Lists are not the same", _list.subList(0, 4), Arrays.asList("first", "hello", 
+				"world", "tsunami"));
 	}
 }
