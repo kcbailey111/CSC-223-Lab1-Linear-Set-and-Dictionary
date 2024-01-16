@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class ArraySetTest
 {
 
-//Test commit for Git
+//Test commit with Kyler
 	@Test
 	void testArraySetCollectionOfE()
 	{
