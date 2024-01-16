@@ -7,6 +7,7 @@
 
 package utilities;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -21,7 +22,7 @@ class ParallelArrayDictionaryTest
 	void testParallelArrayDictionary()
 	{
 		ParallelArrayDictionary<Integer, String> _dict = new ParallelArrayDictionary<Integer, String>();
-		assertTrue(_dict.size()==0);
+		assertEquals(_dict.size(), 0);
 		assertTrue(_dict.isEmpty());
 		
 		_dict.put(1, "hello");
@@ -29,7 +30,7 @@ class ParallelArrayDictionaryTest
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
 		
-		assertTrue(_dict.size()==4);
+		assertEquals(_dict.size(), 4);
 		assertTrue(_dict.containsKey(1));
 		assertTrue(_dict.containsValue("tsunami"));
 	}
@@ -46,10 +47,10 @@ class ParallelArrayDictionaryTest
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
 		
-		assertTrue(_dict.get(1).equals("hello"));
-		assertTrue(_dict.get(2).equals("world"));
-		assertTrue(_dict.get(3).equals("tsunami"));
-		assertTrue(_dict.get(4).equals("last"));
+		assertEquals(_dict.get(1), "hello");
+		assertEquals(_dict.get(2), "world");
+		assertEquals(_dict.get(3), "tsunami");
+		assertEquals(_dict.get(4), "last");
 	}
 
 	/**
